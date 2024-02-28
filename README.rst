@@ -15,16 +15,16 @@
 
 .. class:: center
 
-    :Название исследуемой задачи: Мое название работы
-    :Тип научной работы: M1P/НИР/CoIS
-    :Автор: Имя Отчество Фамилия
+    :Название исследуемой задачи: Предсказание нейронной активности с экзогенными факторами
+    :Тип научной работы: M1P
+    :Автор: Зыков Т.А.
     :Научный руководитель: степень, Фамилия Имя Отчество
     :Научный консультант(при наличии): степень, Фамилия Имя Отчество
 
 Abstract
 ========
 
-Purus sit amet luctus venenatis lectus magna fringilla. Condimentum id venenatis a condimentum vitae sapien. Auctor neque vitae tempus quam pellentesque nec nam aliquam. Eget egestas purus viverra accumsan in. Nam aliquam sem et tortor. Donec et odio pellentesque diam volutpat commodo. Odio pellentesque diam volutpat commodo sed egestas. Sit amet dictum sit amet justo. Pellentesque sit amet porttitor eget. Imperdiet sed euismod nisi porta lorem mollis aliquam ut. Quis varius quam quisque id diam vel quam elementum. Ornare lectus sit amet est placerat in. Vulputate dignissim suspendisse in est ante. Elit sed vulputate mi sit amet mauris. Egestas sed tempus urna et pharetra pharetra. Viverra tellus in hac habitasse platea dictumst vestibulum rhoncus.
+Проводится анализ эффекта звукового ряда на показания датчиков фМРТ, а также проверить гипотезу зависимости между ними. Требуется предложить метод прогнозирования показаний фМРТ по прослушиваемому звуковому ряду и улучшить качество предсказания с помощью видеоряда. При прогнозировании сложноорганизованных временных рядов, зависящих от экзогенных факторов и имеющих множественную периодичность, связи между рядами устанавливаются с помощью метода сходящегося перекрестного отображения и тестом Гренджера.
 
 Research publications
 ===============================
