@@ -1,6 +1,7 @@
 \documentclass[12pt, twoside]{article}
 \usepackage{jmlda}
 \newcommand{\hdir}{.}
+\usepackage{natbib}
 
 \begin{document}
 
@@ -10,7 +11,7 @@
 \author
     [Зыков Т.А.] % список авторов (не более трех) для колонтитула; не нужен, если основной список влезает в колонтитул
     {Зыков~Т.А.} % основной список авторов, выводимый в оглавление
-    [Зыков~Т.А.$^1$, Дорин~Д.Д.$^2$, Тихонов~Д.М.$^{3}$] % список авторов, выводимый в заголовок; не нужен, если он не отличается от основного
+    [Зыков~Т.А.$^1$, Дорин~Д.Д.$^2$, Стрижов~В.В.$^{3}$] % список авторов, выводимый в заголовок; не нужен, если он не отличается от основного
 \email
     {zykov.ta@phystech.edu}
 \organization
@@ -19,242 +20,112 @@
     {% Данный текст является шаблоном статьи, подаваемой для публикации в журнале <<Машинное обучение и анализ данных>>.
 
     
-   Исследуется проблема восстановления зависимости между показаниями датчиков фМРТ и восприятием внешнего мира человеком. Проводится анализ зависимости между последовательностью снимков фМРТ и звуковым рядом. Требуется предложить метод прогнозирования показаний фМРТ по прослушиваемому звуковому ряду и улучшить качество предсказания с помощью видеоряда. При прогнозировании сложноорганизованных временных рядов, зависящих от экзогенных факторов и имеющих множественную периодичность, связи между рядами устанавливаются с помощью метода сходящегося перекрестного отображения и тестом Гренджера. 
-    
- %    Аннотация описывает основную цель работы,
- %    особенности предлагаемого подхода и~основные результаты.
- %    Сведения, содержащиеся в заглавии статьи, не должны повторяться в тексте авторского резюме.
- %    В аннотации не должно быть ссылок на литературу и, по возможности, формул.
-	
-	% Также необходимо представить расширенную структурированную аннотацию на английском языке объемом 200--300 слов.	
-	% Английская аннотация может не быть дословным переводом русского текста и должна быть написана хорошим английским языком.
-	
-	% В титульном заголовке необходимо указать полный, официально принятый, переводной вариант названия организации.
-	% Указывать нужно только ту часть названия, которая относится к понятию юридического лица,
-	% не вписывая названий кафедры, лаборатории или другого структурного подразделения внутри организации.
-	% Необходимо указать полный юридический адрес, или, как минимум, город и страну.
- 	
- % 	При выборе ключевых слов основным критерием является их потенциальная ценность для выражения содержания документа или для его поиска.
-	% В качестве ключевых слов могут использоваться термины из названия, аннотации, вступительной и заключительной части текста статьи.
- % 	При подборе ключевых слов рекомендуется использовать базовые термины вместе с более сложными, допускается использование повторов и синонимов.
-	% Не рекомендуется использование слишком сложных слов, слов в кавычках, слов с запятыми.
-	% По возможности следует применять слова в основной форме именительного падежа единственного числа.
-	% Рекомендуемое количество ключевых слов~-- 5-7, количество слов внутри ключевой фразы~-- не более 3.
-	
-\bigskip
-\noindent
-\textbf{Ключевые слова}: \emph {фМРТ; звуковой ряд; временной ряд; прогнозирование; причинно-следственный анализ;}
+   Исследуется проблема восстановления зависимости между показаниями датчиков фМРТ и восприятием внешнего мира человеком. Проводится анализ зависимости между последовательностью снимков фМРТ и звуковым рядом. Требуется предложить метод прогнозирования показаний фМРТ по прослушиваемому звуковому ряду. При прогнозировании сложноорганизованных временных рядов, зависящих от экзогенных факторов и имеющих множественную периодичность, связи между рядами устанавливаются с помощью метода сходящегося перекрестного отображения и тестом Гренджера. 
 }
-
-\titleEng
-	[Prediction of neural activity with exogenous factors] % краткое название; не нужно, если полное название влезает в~колонтитул
-    {Prediction of neural activity with exogenous factors}
-\authorEng
-	[F.\,S.~Author] % список авторов (не более трех) для колонтитула; не нужен, если основной список влезает в колонтитул
-	{F.\,S.~Author, F.\,S.~Co-Author, and F.\,S.~Name} % основной список авторов, выводимый в оглавление
-    [F.\,S.~Author$^1$, F.\,S.~Co-Author$^2$, and F.\,S.~Name$^{1, 2}$] % список авторов, выводимый в заголовок; не нужен, если он не отличается от основного
-\thanksEng
-    {The research was
-     %partially
-    	 supported by the Russian Foundation for Basic Research (grants 00-00-0000 and 00-00-00001).
-    }
-\organizationEng
-    {$^1$Organization, address; $^2$Organization, address}
-\abstractEng
-     {
- %This is the template of the paper submitted to the journal ``Machine Learning and Data Analysis''.
-		
-	% \noindent
-	% The title should be concise and informative. Titles are often used in information-retrieval systems. Avoid abbreviations and formulae where possible.
-	% Please clearly indicate the last names and initials of each author and check that all names are accurately spelled. Present the authors' affiliation
-	% addresses where the actual work was done.
-	% Provide the full postal address of each affiliation, including the country name and, if available, the
-	% e-mail address of each author.
-	% Provide only institutional affiliation, department/division affiliation are not required.
-
-	% \noindent
-	% A concise and factual abstract is required.
-	% The purpose of the abstract is to provide a summary~of the paper enabling the reader to decide whether or not to read the full text.
- %    	The abstract should state briefly the purpose of the research, the principal results and major conclusions.
- %    	An abstract is often presented separately from the article, so it must be able to stand alone.
- %    	For this reason, References should be avoided, but if essential, then cite the author(s) and year(s).
- %    	Also, non-standard or uncommon abbreviations should be avoided, but if essential they must be defined at their first mention in the abstract itself.
- %    	The requirements on the size of the abstract is about 200--300 words.
- %    	It should be provided in the next structured manner:
-	
-	% \noindent
-	% \textbf{Background}:	One paragraph about the problem, existent approaches and its limitations.
-	
-	% \noindent
-	% \textbf{Methods}: One paragraph about proposed method and its novelty.
-	
-	% \noindent
-	% \textbf{Results}: One paragraph about major properties of the proposed method and experiment results if applicable.
-	
-	% \noindent
-	% \textbf{Concluding Remarks}: One paragraph about the place of the proposed method among existent approaches.
-		
-	% \noindent
-	% Immediately after the abstract, provide 5-7 keywords, avoiding general and plural terms and multiple concepts (avoid, for example, ``and'', ``of'').
-	% Use keywords that are specific and that reflect what is essential about the paper.
-	% Use keywords from the abstract, introduction and conclusion.
-	% These keywords will be used for indexing purposes.
-		
-	\noindent
-    	\textbf{Keywords}: \emph{keyword; keyword; more keywords, separated by ``;''}}
-
-%данные поля заполняются редакцией журнала
-% \doi{10.21469/22233792}
-% \receivedRus{01.01.2017}
-% \receivedEng{January 01, 2017}
-
 \maketitle
-\linenumbers
 
 \section{Введение}
 
-[the research goal (and its motivations),]
+Функциональная магнитно-резонансная томография (фМРТ) \citep{puras2014neurovisualization} — метод нейровизуализации, который измеряет активность мозга путем выявления изменений, связанных с кровотоком. Метод нейровизуализации фМРТ находит применение для анализа корреляции активности мозга с такими заболеваниями как аутизм и болезнь Альцгеймера, а также для прогнозирования таких заболеваний как черепно-мозговая травма и имеет потенциал для терапии \citep{fmriapplications}. Он дает представление о том, какие области мозга участвуют в конкретных психических процессах или задачах, измеряя уровень BOLD (Blood-oxygen-level-dependent). BOLD это показатель, используемый в функциональной магнитно-резонансной томографии, который отражает изменения кровотока и уровня насыщения кислородом в мозге \citep{bold}. 
+
 Работа посвящена восстановлению зависимости между снимками фМРТ
-и звуковым рядом и улучшению понимания взаимосвязи между активностью мозга и внешними раздражителями. [TODO Новизна].
+и звуковым рядом. Предполагается, что такая зависимость существует. Кроме того, предполагается, что между снимком и звуковым рядом есть постоянная задержка во
+времени\citep{menon1999spatial}. Время задержки выступает в качестве гиперпараметра модели. Предлагается метод аппроксимации показаний фМРТ по прослушиваемому звуковому ряду. Проводится первичный анализ влияния типа звукового ряда (музыка или простой диалог) на изменения уровня BOLD и анализ зависимости снимков фМРТ от звукового ряда.
 
-[the object of research (introduce main termini),]
-Функциональная магнитно-резонансная томография (фМРТ) — это метод нейровизуализации, который измеряет активность мозга путем выявления изменений, связанных с кровотоком. Он дает представление о том, какие области мозга участвуют в конкретных психических процессах или задачах, измеряя изменения уровня оксигенации крови (сатурация). 
+В данной работе рассмотрим одно из ограничений BOLD\citep{menon1999spatial}. Временное разрешение -- это наименьший период времени нейронной активности который с высокой точностью можно определить с помощью фМРТ. Время измерений фМРТ происходит с задержкой, что затрудняет регистрацию быстрых нейронных событий. Кроме того, при выборе модели важно учитывать структуру временных рядов: у некоторых вокселей прослеживается тренд на протяжении всей звуковой дорожки или неоднородность шума, при которых можно использовать оценки Уайта\citep{hetero}.
 
-[the problem (what is the challenge)]
-Существует несколько ограничений:  Временное и пространственное разрешение -- время измерений фМРТ происходит с задержкой, что затрудняет регистрацию быстрых нейронных событий. Шум -- сигналы фМРТ могут быть слабыми по сравнению с фоновым шумом, что может повлиять на точность результатов.
+Для извлечения признаков из звуковой дорожки можно использовать разные подходы\citep{audiofeaturetrends}. В этой работе рассматривается мел-кепстральные коэффициенты (MFCC). Это характеристики аудиосигнала которые получаются из спектрограммы и используются для анализа звука и обработки речи. Преимуществом такого представления является небольшая размерность.
 
-
-[methodology: literature review and state-of-the-art]
-[the project tasks,]
+В качестве датасета будем использовать данные\citep{Berezutskaya2022}, собранные у большой группы людей во время просмотра короткометражного аудиовизуального фильма. Он включает записи фМРТ 30 участников в возрасте от 7 до 47 лет. Данные были получены с использованием богатого аудиовизуального стимула. Звуковая дорожка состоит из диалогов персонажей и музыкальных вставок.
 
 
-[the proposed solution, its novelty, and advantages]
-Одним из потенциальных решений является использование нейронных сетей, в частности, с использованием готовых архитектур как ResNet. Используя возможности глубокого обучения, мы сможем формализовать проблему и закодировать снимки фМРТ и звуковой ряд. 
+\section{Постановка задачи}
+Требуется предложить метод прогнозирования показаний фМРТ по прослушиваемому звуковому ряду. 
+Обозначим частоту снимков фМРТ $\mu \in \mathbb{R}$. Задана последовательность снимков
+\begin{equation}
+	\label{eq1}
+	\bS = [\bs_1, \ldots, \bs_{\mu t}], \quad\
+	\bs_{\ell} \in \mathbb{R}^{X \times Y \times Z},
+\end{equation}
+где $X, Y$ и $Z$~--- размерности воксельного изображения.
 
-[the profs and cons of recent works,]
+Задана частота дискретизации $\nu \in \mathbb{R}$, количество каналов $k \in \mathbb{N}$ и продолжительность $t \in \mathbb{R}$ аудиоряда.
+Задан непрерывный по времени сигнал
+\begin{equation}
+	\label{eq2}
+	\bP = [\bp_1, \ldots, \bp_{\nu t}], \quad\
+	\bp_{\ell} = 
+        \begin{pmatrix}
+        p_\ell^1\\
+        p_\ell^2 \\
+        \vdots \\
+        p_\ell^k\\
+        \end{pmatrix}, \quad\
+	p_{\ell}^k \in \mathbb{R},
+\end{equation}
+
+Задача состоит в построении отображения, которое бы учитывало задержку $\Delta t$ между
+снимком фМРТ и аудиорядом, а также предыдущие томографические показания. Формально, необходимо
+найти такое отображение $\mathbf{f}$, что
+\begin{equation}
+	\label{eq3}
+	\mathbf{f}(\bp_1, \ldots, \bp_{k_{\ell} - \nu \Delta t}; \bs_1, \ldots, \bs_{\ell-1}) = \bs_{\ell},
+	\ \ell = 1, \ldots, \mu t,
+\end{equation}
+где для $\ell$-го снимка фМРТ номер соответствующего сигнала $k_{\ell}$ определяется по формуле
+\begin{equation}
+	\label{eq4}
+	k_{\ell} = t\nu = \dfrac{\ell}{\mu}\nu.
+\end{equation}
+
+Эмбеддингами аудиоряда будут мел-кепстральные коэффициенты \citep{mfcc}. То есть
+для каждого экземпляра сигнала имеем вектор размерности $\mathbf{d}$:
+\begin{equation}
+	\label{eq5}
+ \bx_{\ell} = [x^{\ell}_1, \ldots, x^{\ell}_{d}]\T \in \mathbb{R}^{d}, \ {\ell} = 1, \ldots, \dfrac{\nu t}{h}. 
+\end{equation}
+Будем восстаналивать функцию $\mathbf{f}$, в предположении марковского свойства. 
+
+\begin{equation}
+	\label{eq6}
+	\mathbf{f}(\bx_{k_\ell - 
+ \nu\Delta t - g}, \ldots, \bx_{k_\ell - 
+ \nu\Delta t}) = \bs_\ell - \bs_{\ell-1} = \bdelta_\ell
+	\ \ell = 2, \ldots, \mu t,
+\end{equation}
+где $\bdelta_{\ell} = [s^{\ell}_{ijk} - s^{\ell-1}_{ijk}] = [\delta^{\ell}_{ijk}] \in \mathbb{R}^{X \times Y \times Z}$~--- разность между двумя последовательными снимками.
 
 
+Учитывая \eqref{eq4}, суммарное число пар (сигнал, снимок)
+равно $N = \mu (t - \Delta t)$. Таким образом, для каждого вокселя задана выборка
+\[ \mathfrak{D}_{ijk} = \{(\bx_{\ell}, \delta^{\ell}_{ijk}) \ | \ {\ell} = 2, \ldots, N \}. \]
 
-[goal of the experiment, set up, data sets, workflow.]
+Поставлена элементарная задача восстановления регрессии
+\begin{equation}
+	\label{eq7}
+	y_{ijk}: \mathbb{R}^{d} \to \mathbb{R}.
+\end{equation}
+
+Рассмотрим каждый воксель независимо $Y_{ijk} \in \mathbb{R}^{N}$ - воксели, $X \in \mathbb{R}^{N \times d}$. Предполагаемая зависимость
+\begin{equation}
+	\label{eq8}
+	Y_{ijk} = X\theta + \varepsilon,
+\end{equation}
+где $\theta \in \mathbb{R}^d$ - коэффициенты модели, $\varepsilon \sim N(0, \Sigma)$ - шум.
+
+Требуется найти параметры $\widehat\theta$, доставляющие максимум функции правдоподобия при заданных гиперпараметрах $\Delta t$ и $d$, где $d$ -- размерность MFCC:
+\begin{equation}
+	\label{eq9}
+	L_X(\theta) = \prod\limits_{v=1}^N p_\theta(Y_{ijk}^v) \longrightarrow \mylim{max}_\theta
+\end{equation}
+
+\section{Предварительные сведения}
 
 
-
-
-
-
-
-\section{Название раздела}
-Данный документ демонстрирует оформление статьи,
-подаваемой в электронную систему подачи статей \url{http://jmlda.org/papers} для публикации в журнале <<Машинное обучение и анализ данных>>.
-Более подробные инструкции по~стилевому файлу \texttt{jmlda.sty} и~использованию издательской системы \LaTeXe\
-находятся в~документе \texttt{authors-guide.pdf}.
-Работу над статьёй удобно начинать с~правки \TeX-файла данного документа.
-
-Обращаем внимание, что данный документ должен быть сохранен в кодировке~\verb'UTF-8 without BOM'.
-Для смены кодировки рекомендуется пользоваться текстовыми редакторами \verb'Sublime Text' или \verb'Notepad++'.
-
-\paragraph{Название параграфа}
-Разделы и~параграфы, за исключением списков литературы, нумеруются.
-
-\section{Заключение}
-Желательно, чтобы этот раздел был, причём он не~должен дословно повторять аннотацию.
-Обычно здесь отмечают, каких результатов удалось добиться, какие проблемы остались открытыми.
 
 %%%% если имеется doi цитируемого источника, необходимо его указать, см. пример в \bibitem{article}
 %%%% DOI публикации, зарегистрированной в системе Crossref, можно получить по адресу http://www.crossref.org/guestquery/
-\begin{thebibliography}{99}
-% \bibitem{book}
-%     \BibAuthor{Гуссенс~М., Миттельбах~Ф., Cамарин~А.}
-%     \BibTitle{Путеводитель по пакету \LaTeX\ и~его расширению \LaTeXe} / Пер. с англ.~---
-%     М.:~Мир, 1999. 606~с.
-%     (\BibAuthor{Goossens M., Mittelbach F., Samarin A.}
-%      \BibTitle{The \LaTeX\ companion}.~--- 2nd ed.~--- Reading, MA, USA: Addison-Wesley, 1994. 528 p.)
-
-% \bibitem{article}
-%     \BibAuthor{Загуренко~А.\,Г., Коротовских~В.\,А., Колесников~А.\,А., Тимонов~А.\,В., Кардымов~Д.\,В.}
-%     Технико-экономическая оптимизация дизайна гидроразрыва пласта~//
-%     \BibJournal{Нефтяное хозяйство}, 2008. Т.~11. \No\,1. С.~54--57.
-% 	\BibDoi{10.3114/S187007708007}.
-
-% \bibitem{webArticle}
-% 	\BibAuthor{Blaga~P.\,A.}
-% 	Commutative Diagrams with XY-pic II. Frames and Matrices~//
-% 	\BibJournal{PracTEX J.}, 2007. Vol.\,4.
-% 	URL: \BibUrl{https://tug.org/pracjourn/2007-1/blaga/blaga.pdf}.
-
-% \bibitem{webResource}
-% 	XYpic.
-% 	URL: \BibUrl{http://akagi.ms.u-tokyo.ac.jp/input9.pdf}.
-	
-% \bibitem{inproceedingsRus}
-% 	\BibAuthor{Усманов~Т.\,С., Гусманов~А.\,А., Муллагалин~И.\,З., Мухаметшина~Р.\,Ю., Червякова~А.\,Н., Свешников~А.\,В.}
-% 	Особенности проектирования разработки месторождений с применением гидроразрыва пласта~//
-% 	\BibJournal{Труды 6-го Междунар. симп. <<Новые ресурсосберегающие технологии недропользования и повышения нефтегазоотдачи>>}.~---
-% 	М.:~Издательство, 2007. С.~267--272.
-
-% \bibitem{inproceedingsEng}
-%     \BibAuthor{Author~N.}
-%     Paper title~//
-%     \BibJournal{10th Conference (International) on Any Science Proceedings}.~---
-%     Place of publication: Publisher, 2009. P.~111--122.
-
-% \bibitem{techreport}
-% 	\BibAuthor{Lambert~P.}
-%   	\BibTitle{The title of the work}.
-%   	Place of publication:~The institution that published, 1993.  Report~2.
- 	
-\end{thebibliography}
-
-%%%% если имеется doi цитируемого источника, необходимо его указать, см. пример в \bibitem{article}
-%%%% DOI публикации, зарегистрированной в системе Crossref, можно получить по адресу http://www.crossref.org/guestquery/.
-
-\maketitleSecondary
-\English
-\begin{thebibliography}{99}
-% \bibitem{book}
-% 	\BibAuthor{Goossens,~M., F. Mittelbach, and A.~Samarin}. 1994.
-% 	\BibTitle{The \LaTeX\ companion}.
-% 	2nd ed.
-% 	Reading, MA: Addison-Wesley. 528 p.
-
-% \bibitem{article}
-% 	\BibAuthor{Zagurenko,~A.\,G., V.\,A.~Korotovskikh, A.\,A.~Kolesnikov, A.\,V.~Timonov, and D.\,V.~Kardymon}. 2008.
-% 	Tekhniko-ekonomicheskaya optimizatsiya dizayna gidrorazryva plasta
-% 	[Technical and economic optimization of the design of hydraulic fracturing].
-% 	\BibJournal{Neftyanoe Khozyaystvo} [Oil Industry] 11(1):54--57.
-% 	\BibDoi{10.3114/S187007708007}. (In Russian)
-
-% \bibitem{webArticle}
-% 	\BibAuthor{Blaga,~P.\,A.} 2007.
-% 	Commutative Diagrams with XY-pic II. Frames and Matrices.
-% 	\BibJournal{PracTEX J.}  4.
-% 	Available at: \BibUrl{https://tug.org/pracjourn/2007-1/blaga/blaga.pdf}
-%     (accessed February 20, 2007).
-
-% \bibitem{webResource}
-% 	XYpic.
-% 	Available at: \BibUrl{http://akagi.ms.u-tokyo.ac.jp/input9.pdf}
-% 	(accessed April 09, 2015).
-
-% \bibitem{inproceedingsRus}
-% 	\BibAuthor{Usmanov,~T.\,S., A.\,A.~Gusmanov, I.\,Z.~Mullagalin, R.\,Yu.~Mukhametshina, A.\,N.~Chervyakova, and A.\,V.~Sveshnikov.} 2007.
-% 	Osobennosti proektirovaniya razrabotki mestorozhdeniy s primeneniem gidrorazryva plasta
-% 	[Features of the design of field development with the use of hydraulic fracturing].
-% 	\BibJournal{6th Symposium (International) ``New Energy Saving Subsoil Technologies and the
-% 	Increasing of the Oil and Gas Impact'' Proceedings}.
-% 	Moscow:~Publisher. 267--272. (In Russian)
-	   	
-% \bibitem{inproceedingsEng}
-%     \BibAuthor{Author,~N.} 2009.
-%     Paper title.
-%     \BibJournal{10th Conference (International) on Any Science Proceedings}.
-%     Place of publication: Publisher. 111--122.
-	
-% \bibitem{techreport}
-% 	\BibAuthor{Lambert,~P.} 1993.
-%   	\BibTitle{The title of the work}.
-%   	Place of publication:~The institution that published.  Report~2.
-  	     	
-\end{thebibliography}
+\bibliographystyle{unsrt}
+\bibliography{references.bib}
 
 \end{document}
